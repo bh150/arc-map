@@ -1,0 +1,110 @@
+/* Reset */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #0f1225;
+}
+
+/* Fullscreen map */
+#map {
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Floating compact menu */
+#sidebar {
+  position: absolute;
+  top: 16px;
+  /* keep toggle at 16px, move sidebar right so it doesn't overlap */
+  left: 64px;
+
+  background: rgba(0, 0, 0, 0.85);
+  padding: 10px 12px;
+  border-radius: 12px;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+
+  display: inline-block;
+  z-index: 1000;
+
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Hide animation */
+#sidebar.hidden {
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+}
+
+/* Optional small header */
+#sidebar h2 {
+  margin: 0 0 6px 0;
+  font-size: 13px;
+  font-weight: 500;
+  color: #ccc;
+  text-align: center;
+}
+
+/* Buttons */
+#sidebar button {
+  display: block;
+  margin: 4px 0;
+  padding: 6px 10px;
+
+  border-radius: 8px;
+  border: none;
+
+  background: #222;
+  color: white;
+  font-size: 13px;
+
+  cursor: pointer;
+  white-space: nowrap;
+
+  transition: background 0.15s ease, transform 0.05s ease;
+}
+
+#sidebar button:hover {
+  background: #444;
+}
+
+#sidebar button:active {
+  transform: scale(0.97);
+}
+
+/* Toggle button (☰) */
+#toggleMenu {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+
+  border: none;
+  border-radius: 10px;
+
+  padding: 6px 10px;
+  font-size: 14px;
+  cursor: pointer;
+
+  /* Make sure the toggle always sits above the sidebar */
+  z-index: 1200;
+}
+
+/* Show a small visible tab if the sidebar is hidden (helps reopening) */
+#toggleMenu.tab-visible {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.35);
+}
+
+/* Prevent map drag from highlighting text */
+* {
+  user-select: none;
+}
+
+.leaflet-container {
+  background: #0f1225;
+}
